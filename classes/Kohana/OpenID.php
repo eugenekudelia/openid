@@ -9,7 +9,7 @@ abstract class Kohana_OpenID {
 	 */
 	public static function factory($provider = NULL)
 	{
-		$class = 'openid' . ($provider ? '_'.$provider : '');
+		$class = 'OpenID' . ($provider ? '_'.$provider : '');
 		return new $class;
 	}
 
@@ -18,7 +18,7 @@ abstract class Kohana_OpenID {
 	 */
 	protected $_openid;
 	/**
-	 * @var Default identity (optional)
+	 * @var string Default identity (optional)
 	 */
 	protected $_identity;
 	protected $_identity_key = 'openid_id';
@@ -39,7 +39,7 @@ abstract class Kohana_OpenID {
 		$this->_openid = new LightOpenID();
 		if ($this->_identity)
 		{
-			$this->_openid->identity = $this->_identity;
+			$this->identity($this->_identity);
 		}
 	}
 
@@ -137,7 +137,7 @@ abstract class Kohana_OpenID {
 			$this->_openid->optional = array('namePerson', 'namePerson/first');
 		}
 
-		Request::current()->redirect($this->_openid->authUrl());
+		HTTP::redirect($this->_openid->authUrl());
 	}
 
 	public function complete_login()
