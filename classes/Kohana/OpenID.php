@@ -22,6 +22,8 @@ abstract class Kohana_OpenID {
 	 */
 	protected $_identity;
 	protected $_identity_key = 'openid_id';
+	protected $_default_optional = array('namePerson', 'namePerson/first');
+	protected $_default_required = array('namePerson/friendly', 'contact/email');
 
 	protected function _format_identity($identity)
 	{
@@ -129,12 +131,12 @@ abstract class Kohana_OpenID {
 
 		if (empty($this->_openid->required))
 		{
-			$this->_openid->required = array('namePerson/friendly', 'contact/email');
+			$this->_openid->required = $this->_default_required;
 		}
 
 		if (empty($this->_openid->optional))
 		{
-			$this->_openid->optional = array('namePerson', 'namePerson/first');
+			$this->_openid->optional = $this->_default_optional;
 		}
 
 		HTTP::redirect($this->_openid->authUrl());
