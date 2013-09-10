@@ -32,7 +32,7 @@ abstract class Kohana_OpenID {
 
 	public function __construct()
 	{
-		$path = Kohana::find_file('vendor', 'openid');
+		$path = Kohana::find_file('vendor/lightopenid', 'openid');
 		if ( ! $path)
 		{
 			throw new Kohana_Exception('OpenID library not found!');
@@ -74,7 +74,7 @@ abstract class Kohana_OpenID {
 
 	public function mode()
 	{
-		return arr::get($this->_openid->data, 'openid_mode');
+		return Arr::get($this->_openid->data, 'openid_mode');
 	}
 
 	public function attributes()
@@ -126,7 +126,7 @@ abstract class Kohana_OpenID {
 
 		if (empty($identity))
 		{
-			throw new Kohana_Exception('OpenID identifier required');
+			throw new OpenID_Exception('OpenID identifier required');
 		}
 
 		if (empty($this->_openid->required))
@@ -156,6 +156,5 @@ abstract class Kohana_OpenID {
 
 		return $this->_openid->identity;
 	}
-
 
 }
