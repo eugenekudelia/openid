@@ -8,6 +8,6 @@ return array(
 		'livejournal'	=> 'Livejournal',
 		'myopenid'		=> 'MyOpenID',
 		'wordpress'		=> 'Wordpress',
-		'Yahoo'			=> 'Yahoo',
+		'yahoo'			=> 'Yahoo',
 	)
 );
