@@ -2,7 +2,7 @@
 /**
  * OpenID providers.
  */
-//$route = Route::get(APPALIAS.'sso.auth');
+//$route = Route::get(APPALIAS.'.sso.auth');
 
 return array(
 	//'enabled' => array(
