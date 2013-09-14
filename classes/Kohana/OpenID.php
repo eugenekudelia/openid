@@ -38,7 +38,7 @@ abstract class Kohana_OpenID {
 			throw new Kohana_Exception('OpenID library not found!');
 		}
 		require_once $path;
-		$this->_openid = new LightOpenID();
+		$this->_openid = new LightOpenID(BASE_URL);
 		if ($this->_identity)
 		{
 			$this->identity($this->_identity);
