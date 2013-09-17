@@ -56,6 +56,11 @@ abstract class Kohana_OpenID {
 		return $this;
 	}
 
+	public function identity_key()
+	{
+		return $this->_identity_key;
+	}
+
 	public function public_id()
 	{
 		return Cookie::get($this->_identity_key);
